@@ -1,0 +1,476 @@
+<!DOCTYPE HTML><html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manager</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+    		<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+        <link href="worklight/worklight.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="materialize/css/materialize.min.css" rel="stylesheet">
+        <script>
+		// Define WL namespace.
+		var WL = WL ? WL : {};
+		/**
+		 * WLClient configuration variables.
+		 * Values are injected by the deployer that packs the gadget.
+		 */
+		 WL.StaticAppProps = {
+   "APP_DISPLAY_NAME": "ManagerStudent",
+   "APP_ID": "ManagerStudent",
+   "APP_SERVICES_URL": "\/apps\/services\/",
+   "APP_VERSION": "1.0",
+   "ENVIRONMENT": "android",
+   "LOGIN_DISPLAY_TYPE": "embedded",
+   "WORKLIGHT_NATIVE_VERSION": "1385896328",
+   "WORKLIGHT_PLATFORM_VERSION": "7.1.0.0",
+   "WORKLIGHT_ROOT_URL": "\/apps\/services\/api\/ManagerStudent\/android\/"
+};
+</script>
+		<script src="worklight/cordova.js"></script>
+		<script src="worklight/wljq.js"></script>
+		<script src="worklight/worklight.js"></script>
+		<script src="worklight/checksum.js"></script>
+		<script>window.$ = window.jQuery = WLJQ;</script>
+    </head>
+    <body style="display: none;">
+    		<!--application UI goes here-->
+        <div class="row1">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3">
+                        <a href="#test1">Kh&aacute;ch H&agrave;ng</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a href="#test2">Loại Sản Phẩm</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a href="#test3">Sản Phẩm</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a href="#test4">H&oacute;a Đơn</a>
+                    </li>
+                    <li class="tab col s3">
+                        <a href="#test5">Chi Tiết H&oacute;a Đơn</a>
+                    </li>
+                </ul>
+            </div>
+  <!-- Tab Khach Hang -->	
+            <div class="col s12" id="test1">		  	
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3">
+                                <a class="active" href="#themKH">Th&ecirc;m Kh&aacute;ch H&agrave;ng</a>
+                            </li>
+                            <li class="tab col s3">
+                                <a class="active" href="#danhsachKH">Danh S&aacute;ch Kh&aacute;ch H&agrave;ng</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12" id="themKH">
+                        <p style="border-style: dashed; border-color: #FF3300;"></p>
+                        <br>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">vpn_key</i>
+			          <input class="validate" id="MaKH" type="number">
+			          <label for="MaKH">M&atilde; Kh&aacute;ch H&agrave;ng</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">recent_actors</i>
+			          <input class="validate" id="TenKH" type="text">
+			          <label for="TenKH">T&ecirc;n Kh&aacute;ch H&agrave;ng</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">account_balance</i>
+			          <input class="validate" id="DiaChi" type="text">
+			          <label for="DiaChi">Địa Chỉ</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">perm_phone_msg</i>
+			          <input class="validate" id="SoDT" type="number">
+			          <label for="SoDT">Số Điện Thoại</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="btn_vm">
+                            <button class="btn waves-effect waves-light" name="action" onclick="Materialize.toast('Login Google +', 1500,'rounded')" type="submit">Google +</button>
+			  	<button class="btn waves-effect waves-light" name="action" onclick="Materialize.toast('Login FaceBook', 1500,'rounded',function(){alert('Now, You don`t login facebook !')})" type="submit">FaceBook</button>
+                        </div>
+                        <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 100px; right: 15px;">
+                            <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+                            <ul>
+                                <li>
+                                    <button class="btn-floating red"><i class="material-icons">favorite</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating green" id="btnreset"><i class="material-icons">restore</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating blue" id="btnadd"><i class="material-icons">add</i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col s12" id="danhsachKH">
+                        <p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+                        <ul class="collapsible" data-collapsible="expandable" id="listst">
+                        </ul>
+                        <div class="fixed-action-btn horizontal" style="bottom: 35px; right: 23px;">
+                            <a class="btn-floating btn-large red modal-trigger waves-effect waves-light btn" href="#modal1">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+                        </div>
+                        <div class="modal modal-fixed-footer" id="modal1">
+                            <div class="modal-content">
+                                <center>  
+                                    <h5 style="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Th&ocirc;ng Tin Kh&aacute;ch H&agrave;ng</h5>
+                                </center>       
+                                <div class="row">
+                                    <form class="col s12">    
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="MaKH1" type="text">
+          <label for="MaKH1">M&atilde; Kh&aacute;ch H&agrave;ng</label>
+                                        </div>      
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="TenKH1" type="text">
+          <label for="TenKH1">T&ecirc;n Kh&aacute;ch H&agrave;ng</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="DiaChi1" type="text">   
+           <label for="DiaChi1">Địa Chỉ</label>    
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="SoDT1" type="number">
+          <label for="SoDT1">Số Điện Thoại</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <center>
+                                    <button id="btnCancel" style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Cancel</button>
+    <button id="btnagree" style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Agree</button> 
+                                </center>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+  <!-- Tab Khach Hang -->	
+  <!-- Tab Loai San Pham -->	
+            <div class="col s12" id="test2">		  	
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3">
+                                <a class="active" href="#themLSP">Th&ecirc;m Loại Sản Phẩm</a>
+                            </li>
+                            <li class="tab col s3">
+                                <a class="active" href="#LSP">Danh S&aacute;ch Loại Sản Phẩm</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12" id="themLSP">
+                        <p style="border-style: dashed; border-color: #FF3300;"></p>
+                        <br>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">vpn_key</i>
+			          <input class="validate" id="MaLSP" type="number">
+			          <label for="MaLSP">M&atilde; Loại Sản Phẩm</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">view_week</i>
+			          <input class="validate" id="TenLSP" type="text">
+			          <label for="TenLSP">T&ecirc;n Loại Sản Phẩm</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 100px; right: 15px;">
+                            <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+                            <ul>
+                                <li>
+                                    <button class="btn-floating red"><i class="material-icons">favorite</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating green" id="btnresetLSP"><i class="material-icons">restore</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating blue" id="btnaddLSP"><i class="material-icons">add</i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col s12" id="LSP">
+                        <p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+                        <ul class="collapsible" data-collapsible="expandable" id="list_LSP">
+                        </ul>
+                        <div class="modal modal-fixed-footer" id="modal2">
+                            <div class="modal-content">
+                                <center>  
+                                    <h5 style="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Th&ocirc;ng Tin Loại Sản Phẩm</h5>
+                                </center>       
+                                <div class="row">
+                                    <form class="col s12">    
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="MaLSP1" type="text">
+          <label for="MaLSP1">M&atilde; Loại Sản Phẩm</label>
+                                        </div>      
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="TenLSP1" type="text">
+          <label for="TenLSP1">T&ecirc;n Loại Sản Phẩm</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <center>
+                                    <button id="btnCancelLSP" style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Cancel</button>
+    <button id="btnagreeLSP" onclick="doUpdateLSP()" style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Agree</button> 
+                                </center>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+  <!-- Tab Loai San Pham -->
+ <!--  San Pham -->	   
+            <div class="col s12" id="test3">		  	
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3">
+                                <a class="active" href="#them_SanPham">Th&ecirc;m Sản Phẩm</a>
+                            </li>
+                            <li class="tab col s3">
+                                <a class="active" href="#DS_SanPham">Danh S&aacute;ch Sản Phẩm</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12" id="them_SanPham">
+                        <p style="border-style: dashed; border-color: #FF3300;"></p>
+                        <br>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">vpn_key</i>
+			          <input class="validate" id="MaSPP" required="" type="number">
+			          <label for="MaSPP">M&atilde; Sản Phẩm</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">card_giftcard</i>
+			          <input class="validate" id="TenSP" type="text">
+			          <label for="TenSP">T&ecirc;n Sản Phẩm</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">chrome_reader_mode</i>
+			          <input class="validate" id="DonViTinh" type="text">
+			          <label for="DonViTinh">Đơn Vị T&iacute;nh</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">description</i>
+			          <input class="validate" id="DonGia" type="number">
+			          <label for="DonGia">Đơn Gi&aacute;</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">toc</i>
+			          <input class="validate" id="MaLSP_1" type="number">
+			          <label for="MaLSP_1">M&atilde; Loại Sản Phẩm</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 41px; right: 15px;">
+                            <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+                            <ul>
+                                <li>
+                                    <button class="btn-floating red"><i class="material-icons">favorite</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating green" id="btnreset_SanPham"><i class="material-icons">restore</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating blue" id="btnadd_SanPham"><i class="material-icons">add</i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col s12" id="DS_SanPham">
+                        <p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+                        <ul class="collapsible" data-collapsible="expandable" id="list_SanPham">
+                        </ul>
+                        <div class="modal modal-fixed-footer" id="modal3">
+                            <div class="modal-content">
+                                <center>  
+                                    <h5 style="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Th&ocirc;ng Tin Sản Phẩm</h5>
+                                </center>       
+                                <div class="row">
+                                    <form class="col s12">    
+                                        <div class="input-field col s6">
+                                            <input class="validate" id="MaSP1" type="number">
+			          <label for="MaSP1">M&atilde; Sản Phẩm</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input class="validate" id="TenSP1" type="text">
+			          <label for="TenSP1">T&ecirc;n Sản Phẩm</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="DonViTinh1" type="text">
+			          <label for="DonViTinh1">Đơn Vị T&iacute;nh</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="DonGia1" type="number">
+			          <label for="DonGia1">Đơn Gi&aacute;</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="MaLSP_2" type="number">
+			          <label for="MaLSP_2">M&atilde; Loại Sản Phẩm</label>
+                                        </div>     
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <center style="margin-top:15px;">
+                                    <button id="btnCancel_SanPham" style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Cancel</button>
+    <button id="btnagree_SanPham" onclick="doUpdate_SanPham()" style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Agree</button> 
+                                </center>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div> 
+ <!--  San Pham -->     
+<!--  Hoa Don -->  
+            <div class="col s12" id="test4">		  	
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3">
+                                <a class="active" href="#them_HD">Th&ecirc;m Hoa Don</a>
+                            </li>
+                            <li class="tab col s3">
+                                <a class="active" href="#DS_hoaDon">Danh S&aacute;ch Hoa Don</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col s12" id="them_HD">
+                        <p style="border-style: dashed; border-color: #FF3300;"></p>
+                        <br>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">vpn_key</i>
+			          <input class="validate" id="Ma_HD" type="number">
+			          <label for="Ma_HD">M&atilde; H&oacute;a Đơn</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">vpn_key</i>
+			          <input class="validate" id="Ma_KH" type="number">
+			          <label for="Ma_KH">M&atilde; Kh&aacute;ch H&agrave;ng</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">date_range</i>
+			          <input class="validate" id="ngay_GD" type="date">
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">directions_bike</i>
+			          <input class="validate" id="ngay_GH" type="date">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 41px; right: 15px;">
+                            <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+                            <ul>
+                                <li>
+                                    <button class="btn-floating red"><i class="material-icons">favorite</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating green" id="btnreset_HoaDon"><i class="material-icons">restore</i></button>
+                                </li>
+                                <li>
+                                    <button class="btn-floating blue" id="btnadd_HoaDon"><i class="material-icons">add</i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col s12" id="DS_hoaDon">
+                        <p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+                        <ul class="collapsible" data-collapsible="expandable" id="list_HoaDon">
+                        </ul>
+                        <div class="modal modal-fixed-footer" id="modal4">
+                            <div class="modal-content">
+                                <center>  
+                                    <h5 style="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Th&ocirc;ng Tin H&oacute;a Đơn</h5>
+                                </center>       
+                                <div class="row">
+                                    <form class="col s12">    
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="Ma_HD1" type="number">
+			          <label for="Ma_HD1">M&atilde; H&oacute;a Đơn</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="Ma_KH1" type="number">
+			          <label for="Ma_KH1">M&atilde; Kh&aacute;ch H&agrave;ng</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="ngay_GD1" type="date">
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <input class="validate" id="ngay_GH1" type="date">
+                                        </div>         
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <center style="margin-top:15px;">
+                                    <button id="btnCancel_HoaDon" style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Cancel</button>
+    <button id="btnagree_SanPham" onclick="doUpdate_HoaDon()" style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;">Agree</button> 
+                                </center>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div> 
+<!--  Hoa Don -->       	  
+        </div> <!-- Row -->
+    		<!--application UI goes here-->
+        <script src="js/initOptions.js"></script>
+    		<script src="js/main.js"></script>
+    		<script src="js/messages.js"></script>
+    		<script src="materialize/js/materialize.min.js"></script>
+    </body>
+</html>

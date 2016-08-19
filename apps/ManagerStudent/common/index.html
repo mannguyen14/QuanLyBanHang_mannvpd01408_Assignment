@@ -1,0 +1,455 @@
+<!DOCTYPE HTML>
+<html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>Manager</title>
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    		<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+    		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    		<link rel="stylesheet" href="css/main.css">
+    		
+    		<link rel="stylesheet" href="materialize/css/materialize.min.css">
+    		<script>window.$ = window.jQuery = WLJQ;</script>
+    	</head>
+    	<body style="display: none;">
+    		<!--application UI goes here-->
+    		
+    		
+			   <div class="row1">
+			    <div class="col s12">
+			      <ul class="tabs">
+			        <li class="tab col s3"><a href="#test1">Khách Hàng</a></li>
+			        <li class="tab col s3"><a href="#test2">Loại Sản Phẩm</a></li>
+			        <li class="tab col s3"><a href="#test3">Sản Phẩm</a></li>
+			        <li class="tab col s3"><a href="#test4">Hóa Đơn</a></li>
+			        <li class="tab col s3"><a href="#test5">Chi Tiết Hóa Đơn</a></li>
+			      </ul>
+			    </div>
+		
+			    
+  <!-- Tab Khach Hang -->	
+	<div id="test1" class="col s12">		  	
+	    <div class="row">
+	    <div class="col s12">
+	      <ul class="tabs">
+	        <li class="tab col s3"><a class="active" href="#themKH" >Thêm Khách Hàng</a></li>
+	        <li class="tab col s3"><a class="active" href="#danhsachKH" >Danh Sách Khách Hàng</a></li>
+	      </ul>
+	    </div>
+	    
+
+		    <div id="themKH" class="col s12">
+		    <p style="border-style: dashed; border-color: #FF3300;"></p>
+		    <br>
+			<div class="row">
+			    <form class="col s12">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">vpn_key</i>
+			          <input id="MaKH" type="number" class="validate">
+			          <label for="MaKH">Mã Khách Hàng</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">recent_actors</i>
+			          <input id="TenKH" type="text" class="validate">
+			          <label for="TenKH">Tên Khách Hàng</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">account_balance</i>
+			          <input id="DiaChi" type="text" class="validate">
+			          <label for="DiaChi">Địa Chỉ</label>
+			          
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">perm_phone_msg</i>
+			          <input id="SoDT" type="number" class="validate">
+			          <label for="SoDT">Số Điện Thoại</label>
+			        </div>
+			      </div>
+			    </form>
+  			</div>
+  			<div class="btn_vm">
+  				<button class="btn waves-effect waves-light" type="submit" name="action" onclick="Materialize.toast('Login Google +', 1500,'rounded')">Google +</button>
+			  	<button class="btn waves-effect waves-light" type="submit" name="action" onclick="Materialize.toast('Login FaceBook', 1500,'rounded',function(){alert('Now, You don`t login facebook !')})">FaceBook</button>
+  			</div>
+  				 
+  			 
+  				<div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 100px; right: 15px;">
+				    <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+				    <ul>
+				      <li><button class="btn-floating red"><i class="material-icons">favorite</i></button></li>
+				      <li><button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button></li>
+				      <li><button class="btn-floating green"  id="btnreset"><i class="material-icons">restore</i></button></li>
+				      <li><button class="btn-floating blue" id="btnadd"><i class="material-icons">add</i></button></li>
+				    </ul>
+				 </div>
+			</div>
+	    <div id="danhsachKH" class="col s12">
+	    	<p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+	    	<ul class="collapsible" data-collapsible="expandable" id="listst">
+ 			</ul>
+  <div class="fixed-action-btn horizontal" style="bottom: 35px; right: 23px;">
+    <a class="btn-floating btn-large red modal-trigger waves-effect waves-light btn"  href="#modal1">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+  </div>
+ 			
+   
+    <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <center >  <h5 style ="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Thông Tin Khách Hàng</h5></center>       
+      
+      <div class="row">
+    <form class="col s12">    
+        <div class="input-field col s12">
+          <input id="MaKH1" type="text" class="validate">
+          <label for="MaKH1">Mã Khách Hàng</label>
+        </div>      
+        <div class="input-field col s12">
+          <input id="TenKH1" type="text" class="validate">
+          <label for="TenKH1">Tên Khách Hàng</label>
+        </div>
+       <div class="input-field col s12">
+          <input id="DiaChi1" type="text" class="validate">   
+           <label for="DiaChi1">Địa Chỉ</label>    
+        </div>
+
+        <div class="input-field col s12">
+          <input id="SoDT1" type="number" class="validate">
+          <label for="SoDT1">Số Điện Thoại</label>
+        </div>
+        
+    </form>
+  </div>
+      
+    </div>
+    <div class="modal-footer" >
+    <center>
+    <button   style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnCancel">Cancel</button>
+    <button   style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnagree">Agree</button> 
+    </center>
+    </div>
+  </div>   
+	    </div>
+	  	</div>
+		</div>
+  <!-- Tab Khach Hang -->	
+  
+  
+  
+  
+  
+  
+  <!-- Tab Loai San Pham -->	
+	<div id="test2" class="col s12">		  	
+	    <div class="row">
+	    <div class="col s12">
+	      <ul class="tabs">
+	        <li class="tab col s3"><a class="active" href="#themLSP" >Thêm Loại Sản Phẩm</a></li>
+	        <li class="tab col s3"><a class="active" href="#LSP" >Danh Sách Loại Sản Phẩm</a></li>
+	      </ul>
+	    </div>
+	    
+
+		    <div id="themLSP" class="col s12">
+		    <p style="border-style: dashed; border-color: #FF3300;"></p>
+		    <br>
+			<div class="row">
+			    <form class="col s12">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">vpn_key</i>
+			          <input id="MaLSP" type="number" class="validate">
+			          <label for="MaLSP">Mã Loại Sản Phẩm</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">view_week</i>
+			          <input id="TenLSP" type="text" class="validate">
+			          <label for="TenLSP">Tên Loại Sản Phẩm</label>
+			        </div>
+			      </div>
+			    </form>
+  			</div>
+  			
+  				<div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 100px; right: 15px;">
+				    <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+				    <ul>
+				      <li><button class="btn-floating red"><i class="material-icons">favorite</i></button></li>
+				      <li><button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button></li>
+				      <li><button class="btn-floating green"  id="btnresetLSP"><i class="material-icons">restore</i></button></li>
+				      <li><button class="btn-floating blue" id="btnaddLSP"><i class="material-icons">add</i></button></li>
+				    </ul>
+				 </div>
+			</div>
+	    <div id="LSP" class="col s12">
+	    	<p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+	    	<ul class="collapsible" data-collapsible="expandable" id="list_LSP">
+	    		
+ 			</ul>
+ 
+ 			
+    <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <center >  <h5 style ="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Thông Tin Loại Sản Phẩm</h5></center>       
+      
+      <div class="row">
+    <form class="col s12">    
+        <div class="input-field col s12">
+          <input id="MaLSP1" type="text" class="validate">
+          <label for="MaLSP1">Mã Loại Sản Phẩm</label>
+        </div>      
+        <div class="input-field col s12">
+          <input id="TenLSP1" type="text" class="validate">
+          <label for="TenLSP1">Tên Loại Sản Phẩm</label>
+        </div>
+    </form>
+  </div>
+      
+    </div>
+    <div class="modal-footer" >
+    <center>
+    <button   style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnCancelLSP">Cancel</button>
+    <button  onclick="doUpdateLSP()" style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnagreeLSP">Agree</button> 
+    </center>
+    </div>
+  </div>   
+	    </div>
+	  	</div>
+		</div>
+  <!-- Tab Loai San Pham -->
+  	     
+  	     
+  	   
+  	   
+  	     
+  	     
+ <!--  San Pham -->	   
+	<div id="test3" class="col s12">		  	
+	    <div class="row">
+	    <div class="col s12">
+	      <ul class="tabs">
+	        <li class="tab col s3"><a class="active" href="#them_SanPham" >Thêm Sản Phẩm</a></li>
+	        <li class="tab col s3"><a class="active" href="#DS_SanPham" >Danh Sách Sản Phẩm</a></li>
+	      </ul>
+	    </div>
+	    
+
+		    <div id="them_SanPham" class="col s12">
+		    <p style="border-style: dashed; border-color: #FF3300;"></p>
+		    <br>
+			<div class="row">
+			    <form class="col s12">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">vpn_key</i>
+			          <input id="MaSPP"   type="number" class="validate"  required>
+			          <label for="MaSPP">Mã Sản Phẩm</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">card_giftcard</i>
+			          <input id="TenSP" type="text" class="validate">
+			          <label for="TenSP">Tên Sản Phẩm</label>
+			        </div>
+			         <div class="input-field col s12">
+			          <i class="material-icons prefix">chrome_reader_mode</i>
+			          <input id="DonViTinh" type="text" class="validate">
+			          <label for="DonViTinh">Đơn Vị Tính</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">description</i>
+			          <input id="DonGia" type="number" class="validate">
+			          <label for="DonGia">Đơn Giá</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">toc</i>
+			          <input id="MaLSP_1" type="number" class="validate">
+			          <label for="MaLSP_1"">Mã Loại Sản Phẩm</label>
+			        </div>
+			      </div>
+			      
+			    </form>
+  			</div>
+  			
+  				<div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 41px; right: 15px;">
+				    <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+				    <ul>
+				      <li><button class="btn-floating red"><i class="material-icons">favorite</i></button></li>
+				      <li><button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button></li>
+				      <li><button class="btn-floating green"  id="btnreset_SanPham"><i class="material-icons">restore</i></button></li>
+				      <li><button class="btn-floating blue" id="btnadd_SanPham"><i class="material-icons">add</i></button></li>
+				    </ul>
+				 </div>
+			</div>
+	    <div id="DS_SanPham" class="col s12">
+	    	<p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+	    	<ul class="collapsible" data-collapsible="expandable" id="list_SanPham">
+	    		
+ 			</ul>
+ 
+ 			
+    <div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <center >  <h5 style ="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Thông Tin Sản Phẩm</h5></center>       
+      
+      <div class="row">
+    <form class="col s12">    
+ 			        <div class="input-field col s6">
+			          <input id="MaSP1" type="number" class="validate">
+			          <label for="MaSP1">Mã Sản Phẩm</label>
+			        </div>
+			        <div class="input-field col s6">
+			          <input id="TenSP1" type="text" class="validate">
+			          <label for="TenSP1">Tên Sản Phẩm</label>
+			        </div>
+			         <div class="input-field col s12">
+			          <input id="DonViTinh1" type="text" class="validate">
+			          <label for="DonViTinh1">Đơn Vị Tính</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <input id="DonGia1" type="number" class="validate">
+			          <label for="DonGia1">Đơn Giá</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <input id="MaLSP_2" type="number" class="validate">
+			          <label for="MaLSP_2">Mã Loại Sản Phẩm</label>
+			        </div>     
+    </form>
+  </div>
+      
+    </div>
+    <div class="modal-footer">
+    <center style="margin-top:15px;">
+    <button   style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnCancel_SanPham">Cancel</button>
+    <button  onclick="doUpdate_SanPham()" style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnagree_SanPham">Agree</button> 
+    </center>
+    </div>
+  </div>   
+	    </div>
+	  	</div>
+		</div> 
+ <!--  San Pham -->     
+  	     
+  	  
+  	  
+  	  
+  	  
+  	  
+  	     
+<!--  Hoa Don -->  
+    <div id="test4" class="col s12">		  	
+	    <div class="row">
+	    <div class="col s12">
+	      <ul class="tabs">
+	        <li class="tab col s3"><a class="active" href="#them_HD" >Thêm Hoa Don</a></li>
+	        <li class="tab col s3"><a class="active" href="#DS_hoaDon" >Danh Sách Hoa Don</a></li>
+	      </ul>
+	    </div>
+	    
+
+		    <div id="them_HD" class="col s12">
+		    <p style="border-style: dashed; border-color: #FF3300;"></p>
+		    <br>
+			<div class="row">
+			    <form class="col s12">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">vpn_key</i>
+			          <input id="Ma_HD"   type="number" class="validate" >
+			          <label for="Ma_HD">Mã Hóa Đơn</label>
+			        </div>
+					<div class="input-field col s12">
+			          <i class="material-icons prefix">vpn_key</i>
+			          <input id="Ma_KH"   type="number" class="validate" >
+			          <label for="Ma_KH">Mã Khách Hàng</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">date_range</i>
+			          <input id="ngay_GD" type="date" class="validate">
+			        </div>
+			        <div class="input-field col s12">
+			          <i class="material-icons prefix">directions_bike</i>
+			          <input id="ngay_GH" type="date" class="validate">
+			        </div>
+	
+			      </div>
+			      
+			    </form>
+  			</div>
+  			
+  				<div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 41px; right: 15px;">
+				    <a class="btn-floating btn-large red">
+				      <i class="large material-icons">polymer</i>
+				    </a>
+				    <ul>
+				      <li><button class="btn-floating red"><i class="material-icons">favorite</i></button></li>
+				      <li><button class="btn-floating yellow darken-1"><i class="material-icons">grade</i></button></li>
+				      <li><button class="btn-floating green"  id="btnreset_HoaDon"><i class="material-icons">restore</i></button></li>
+				      <li><button class="btn-floating blue" id="btnadd_HoaDon"><i class="material-icons">add</i></button></li>
+				    </ul>
+				 </div>
+			</div>
+	    <div id="DS_hoaDon" class="col s12">
+	    	<p style="border-style: dashed; border-color: #FF3300; margin-left:15px; margin-right:15px;"></p>
+	    	<ul class="collapsible" data-collapsible="expandable" id="list_HoaDon">
+	    		
+ 			</ul>
+ 
+ 			
+    <div id="modal4" class="modal modal-fixed-footer">
+    <div class="modal-content">
+    <center >  <h5 style ="font-size:20px; font-weight:bold;  color: red;text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px gray;">Cập Nhật Thông Tin Hóa Đơn</h5></center>       
+      
+      <div class="row">
+    <form class="col s12">    
+ 			   		  <div class="input-field col s12">
+			          <input id="Ma_HD1"   type="number" class="validate" >
+			          <label for="Ma_HD1">Mã Hóa Đơn</label>
+			        </div>
+					<div class="input-field col s12">
+			          <input id="Ma_KH1"   type="number" class="validate" >
+			          <label for="Ma_KH1">Mã Khách Hàng</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <input id="ngay_GD1" type="date" class="validate">
+			        </div>
+			        <div class="input-field col s12">
+			          <input id="ngay_GH1" type="date" class="validate">
+			        </div>         
+    </form>
+  </div>
+      
+    </div>
+    <div class="modal-footer">
+    <center style="margin-top:15px;">
+    <button   style=" background-color: red;  color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnCancel_HoaDon">Cancel</button>
+    <button  onclick="doUpdate_HoaDon()" style=" background-color: red; margin-left :10px; color: white; font-size: 15px; border-radius:4px; box-shadow:5px 5px 5px 5px pink inset;" id="btnagree_SanPham">Agree</button> 
+    </center>
+    </div>
+  </div>   
+	    </div>
+	  	</div>
+		</div> 
+<!--  Hoa Don -->       	  
+  	  
+  	     
+  	     
+  	     
+  	     
+	</div> <!-- Row -->
+    		<!--application UI goes here-->
+    		<script src="js/initOptions.js"></script>
+    		<script src="js/main.js"></script>
+    		<script src="js/messages.js"></script>
+    		
+    		<script src="materialize/js/materialize.min.js"></script>
+    	</body>
+</html>
